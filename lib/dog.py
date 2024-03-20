@@ -10,19 +10,21 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
+
 def create_table(Base,engine):
         
-        __tablename__ = 'dogs'
+    __tablename__ = 'dogs'
 
-        id = Column(Integer(), primary_key=True)
-        name = Column(String())
-        breed = Column(String())
-
-        if __name__ == '__main__':
-            engine = create_engine('sqlite:///students.db')
-            Base.metadata.create_all(engine)
+    id = Column(Integer(), primary_key=True)
+    name = Column(String())
+    breed = Column(String())
+    Base.metadata.create_all(engine)
 
 
+if __name__ == '__main__':
+     engine= create_engine("sqlite:///dogs.db")
+     create_table(Base,engine)
+    
 
 
 def save(session, dog):
